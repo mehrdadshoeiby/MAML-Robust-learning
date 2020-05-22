@@ -1,0 +1,201 @@
+/flush5/sho092/Robust_learning/MAML-Pytorch
+Namespace(batch_size=1, batchsz=100000, crop_size=120, data_dist_same=False, epoch=60000, folder_name='', imgc=3, k=4, load='.', meta_lr=0.001, num_workers=1, pin_memory=True, print_every=5, root='/OSM/CBR/D61_RCV/students/sho092/', save_every=20, save_name='.', seed=1, shuffle=True, task_num=5, test_only=False, update_lr=0.01, update_step=3, update_step_test=10)
+Namespace(batch_size=1, batchsz=100000, crop_size=120, data_dist_same=False, epoch=60000, folder_name='', imgc=3, k=4, load='.', meta_lr=0.001, num_workers=1, pin_memory=True, print_every=5, root='/OSM/CBR/D61_RCV/students/sho092/', save_every=20, save_name='.', seed=1, shuffle=True, task_num=5, test_only=False, update_lr=0.01, update_step=3, update_step_test=10)
+Meta(
+  (net): Learner(
+    conv2d:(ch_in:16, ch_out:32, k:3x3, stride:1, padding:1)
+    relu:(True,)
+    conv2d:(ch_in:32, ch_out:32, k:3x3, stride:1, padding:1)
+    relu:(True,)
+    conv2d:(ch_in:32, ch_out:32, k:3x3, stride:1, padding:1)
+    relu:(True,)
+    conv2d:(ch_in:32, ch_out:32, k:3x3, stride:1, padding:1)
+    relu:(True,)
+    conv2d:(ch_in:32, ch_out:3, k:3x3, stride:1, padding:1)
+    
+    (vars): ParameterList(
+        (0): Parameter containing: [torch.cuda.FloatTensor of size 32x16x3x3 (GPU 0)]
+        (1): Parameter containing: [torch.cuda.FloatTensor of size 32 (GPU 0)]
+        (2): Parameter containing: [torch.cuda.FloatTensor of size 32x32x3x3 (GPU 0)]
+        (3): Parameter containing: [torch.cuda.FloatTensor of size 32 (GPU 0)]
+        (4): Parameter containing: [torch.cuda.FloatTensor of size 32x32x3x3 (GPU 0)]
+        (5): Parameter containing: [torch.cuda.FloatTensor of size 32 (GPU 0)]
+        (6): Parameter containing: [torch.cuda.FloatTensor of size 32x32x3x3 (GPU 0)]
+        (7): Parameter containing: [torch.cuda.FloatTensor of size 32 (GPU 0)]
+        (8): Parameter containing: [torch.cuda.FloatTensor of size 3x32x3x3 (GPU 0)]
+        (9): Parameter containing: [torch.cuda.FloatTensor of size 3 (GPU 0)]
+    )
+    (vars_bn): ParameterList()
+  )
+)
+Total trainable tensors: 33251
+shuffle DB :train, b:100000,  40-setsz, 10-querysz
+epoch: 0 	training acc: 2.6101910181009407
+Max PSNR is: 16.500459189084953
+epoch: 5 	training acc: 41.00954364051448
+epoch: 10 	training acc: 43.92858121379854
+epoch: 15 	training acc: 42.2255305302757
+epoch: 20 	training acc: 48.45113858555321
+Max PSNR is: 21.757325422920598
+epoch: 25 	training acc: 45.95052108642406
+epoch: 30 	training acc: 50.191233987109
+epoch: 35 	training acc: 55.49759413273155
+epoch: 40 	training acc: 46.37384122884664
+Max PSNR is: 21.94426015929786
+epoch: 45 	training acc: 53.67568313115673
+epoch: 50 	training acc: 52.38329894607555
+epoch: 55 	training acc: 55.57634832491888
+epoch: 60 	training acc: 43.51681409907141
+Max PSNR is: 22.099647344296212
+epoch: 65 	training acc: 55.90058016232609
+epoch: 70 	training acc: 57.70636589287986
+epoch: 75 	training acc: 57.30803696515823
+epoch: 80 	training acc: 58.87550366784798
+Max PSNR is: 22.309978631925073
+epoch: 85 	training acc: 48.09237121859367
+epoch: 90 	training acc: 60.97989447749844
+epoch: 95 	training acc: 54.627943645294884
+epoch: 100 	training acc: 48.96960853127044
+Max PSNR is: 22.672528209160795
+epoch: 105 	training acc: 49.082408720610644
+epoch: 110 	training acc: 52.536220695041884
+epoch: 115 	training acc: 53.852112196218016
+epoch: 120 	training acc: 54.18249904941561
+Max PSNR is: 22.779550961472005
+epoch: 125 	training acc: 56.19179284109491
+epoch: 130 	training acc: 50.873749548684614
+epoch: 135 	training acc: 54.58312827049889
+epoch: 140 	training acc: 45.72830260084511
+Max PSNR is: 22.832678716125432
+epoch: 145 	training acc: 48.63994278019084
+epoch: 150 	training acc: 61.11444419785229
+epoch: 155 	training acc: 55.77079480654585
+epoch: 160 	training acc: 57.19142617236943
+Max PSNR is: 22.832678716125432
+epoch: 165 	training acc: 59.627633359178034
+epoch: 170 	training acc: 45.09155856072897
+epoch: 175 	training acc: 54.127900854163784
+epoch: 180 	training acc: 48.6875563450665
+Max PSNR is: 22.832678716125432
+epoch: 185 	training acc: 53.824816687525754
+epoch: 190 	training acc: 55.54823023439042
+epoch: 195 	training acc: 53.99555547826982
+epoch: 200 	training acc: 63.99682756828172
+Max PSNR is: 22.832678716125432
+epoch: 205 	training acc: 55.613346480530105
+epoch: 210 	training acc: 57.56515865687996
+epoch: 215 	training acc: 55.92409830860255
+epoch: 220 	training acc: 51.013105246583905
+Max PSNR is: 22.832678716125432
+epoch: 225 	training acc: 55.40409234415459
+epoch: 230 	training acc: 58.23296282028723
+epoch: 235 	training acc: 56.40906794741836
+epoch: 240 	training acc: 55.56702642369039
+Max PSNR is: 23.09228453662404
+epoch: 245 	training acc: 57.463635303195474
+epoch: 250 	training acc: 49.818021295897346
+epoch: 255 	training acc: 53.9788695639567
+epoch: 260 	training acc: 51.37893353794597
+Max PSNR is: 23.09228453662404
+epoch: 265 	training acc: 53.27225712354654
+epoch: 270 	training acc: 48.49621300103587
+epoch: 275 	training acc: 56.15049317017471
+epoch: 280 	training acc: 59.228241139831
+Max PSNR is: 23.09228453662404
+epoch: 285 	training acc: 59.08375522284608
+epoch: 290 	training acc: 56.5401726695602
+epoch: 295 	training acc: 52.80155236970565
+epoch: 300 	training acc: 58.91802670791724
+Max PSNR is: 23.09228453662404
+epoch: 305 	training acc: 51.80984596898479
+epoch: 310 	training acc: 53.44754672339202
+epoch: 315 	training acc: 54.28811121589723
+epoch: 320 	training acc: 48.75378965363118
+Max PSNR is: 23.09228453662404
+epoch: 325 	training acc: 43.62620107816018
+epoch: 330 	training acc: 46.64410601142238
+epoch: 335 	training acc: 59.34723468414448
+epoch: 340 	training acc: 50.85877128161552
+Max PSNR is: 23.09228453662404
+epoch: 345 	training acc: 55.56297947124185
+epoch: 350 	training acc: 56.360151451794906
+epoch: 355 	training acc: 55.408412502492624
+epoch: 360 	training acc: 55.67607224295048
+Max PSNR is: 23.09228453662404
+epoch: 365 	training acc: 57.90033658683655
+epoch: 370 	training acc: 55.405787841386896
+epoch: 375 	training acc: 55.830980155184626
+epoch: 380 	training acc: 54.465234984062974
+Max PSNR is: 23.16775291828115
+epoch: 385 	training acc: 54.51885180821587
+epoch: 390 	training acc: 55.686708253928394
+epoch: 395 	training acc: 56.98152692636313
+epoch: 400 	training acc: 58.14602093807684
+Max PSNR is: 23.21498796452873
+epoch: 405 	training acc: 49.05992573217417
+epoch: 410 	training acc: 54.0819475992437
+epoch: 415 	training acc: 56.18241593365836
+epoch: 420 	training acc: 58.65047782237738
+Max PSNR is: 23.21498796452873
+epoch: 425 	training acc: 61.02624703284165
+epoch: 430 	training acc: 57.900628134496515
+epoch: 435 	training acc: 61.19129998010297
+epoch: 440 	training acc: 62.08356256803572
+Max PSNR is: 23.21498796452873
+epoch: 445 	training acc: 61.21034210362966
+epoch: 450 	training acc: 54.43495203531147
+epoch: 455 	training acc: 52.57146312749406
+epoch: 460 	training acc: 54.88638354803084
+Max PSNR is: 23.21498796452873
+epoch: 465 	training acc: 55.915269159391094
+epoch: 470 	training acc: 56.3602651153131
+epoch: 475 	training acc: 52.74925978486103
+epoch: 480 	training acc: 57.11348526556952
+Max PSNR is: 23.21498796452873
+epoch: 485 	training acc: 57.772538664064236
+epoch: 490 	training acc: 47.591451158694056
+epoch: 495 	training acc: 56.95078247446787
+epoch: 500 	training acc: 55.94895848483597
+Max PSNR is: 23.69499371784512
+epoch: 505 	training acc: 56.45511264672698
+epoch: 510 	training acc: 62.52746693652678
+epoch: 515 	training acc: 64.55908596936565
+epoch: 520 	training acc: 59.067405672169656
+Max PSNR is: 24.180231661399542
+epoch: 525 	training acc: 55.725596145986714
+epoch: 530 	training acc: 60.110944229692436
+epoch: 535 	training acc: 58.65215604506587
+epoch: 540 	training acc: 58.340019066037726
+Max PSNR is: 24.180231661399542
+epoch: 545 	training acc: 62.60919270871164
+epoch: 550 	training acc: 60.6975068282359
+epoch: 555 	training acc: 68.19229418793189
+epoch: 560 	training acc: 54.35849897073086
+Max PSNR is: 24.180231661399542
+epoch: 565 	training acc: 69.01218976989098
+epoch: 570 	training acc: 45.8280435557297
+epoch: 575 	training acc: 62.13938521492367
+epoch: 580 	training acc: 64.82898861811529
+Max PSNR is: 24.180231661399542
+epoch: 585 	training acc: 57.81031449710951
+epoch: 590 	training acc: 60.33306237330692
+Traceback (most recent call last):
+  File "sr_train.py", line 186, in <module>
+    main()
+  File "sr_train.py", line 88, in main
+    for epoch, (spt_ms, spt_rgb, qry_ms, qry_rgb) in enumerate(db):
+  File "/apps/pytorch/1.1.0-py36-cuda90/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 582, in __next__
+    return self._process_next_batch(batch)
+  File "/apps/pytorch/1.1.0-py36-cuda90/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 608, in _process_next_batch
+    raise batch.exc_type(batch.exc_msg)
+FileNotFoundError: Traceback (most recent call last):
+  File "/apps/pytorch/1.1.0-py36-cuda90/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 99, in _worker_loop
+    samples = collate_fn([dataset[i] for i in batch_indices])
+  File "/apps/pytorch/1.1.0-py36-cuda90/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 99, in <listcomp>
+    samples = collate_fn([dataset[i] for i in batch_indices])
+  File "/flush5/sho092/Robust_learning/MAML-Pytorch/dataloader/StereoMSI_MAML.py", line 163, in __getitem__
+    im_ms = np.array(np.load(im_ms), dtype=np.float)
+  File "/apps/python/3.6.1/lib/python3.6/site-packages/numpy-1.12.1-py3.6-linux-x86_64.egg/numpy/lib/npyio.py", line 370, in load
+    fid = open(file, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/OSM/CBR/D61_RCV/students/sho092/source/train/190.npy'
+
