@@ -1,8 +1,0 @@
-/flush5/sho092/Robust_learning/MAML-Pytorch
-Traceback (most recent call last):
-  File "sr_train.py", line 13, in <module>
-    from dataloader import dataloader as dl
-  File "/flush5/sho092/Robust_learning/MAML-Pytorch/dataloader/dataloader.py", line 60
-    k=args.k)
-    ^
-SyntaxError: invalid syntax

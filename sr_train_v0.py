@@ -19,8 +19,6 @@ import errors
 
 import time
 
-
-
 def mean_confidence_interval(accs, confidence=0.95):
 
     n = accs.shape[0]
@@ -52,9 +50,9 @@ def main():
     np.random.seed(222)
 
     ck.write_log(str(args))
-    #t = str(int(time.time()))
-    #t = args.save_name
-    #os.mkdir('./{}'.format(t))
+    # t = str(int(time.time()))
+    # t = args.save_name
+    # os.mkdir('./{}'.format(t))
     # (ch_out, ch_in, k, k, stride, padding)
     config = [
         ('conv2d', [32, 16, 3, 3, 1, 1]),
@@ -65,7 +63,7 @@ def main():
         ('relu', [True]),
         ('conv2d', [32, 32, 3, 3, 1, 1]),
         ('relu', [True]),
-        ('conv2d', [3, 32, 3, 3, 1, 1]) 
+        ('conv2d', [3, 32, 3, 3, 1, 1])
     ]
 
     device = torch.device('cuda')
@@ -166,7 +164,7 @@ if __name__ == '__main__':
     argparser.add_argument('--test_only', type=bool,
             help='test_only', default=False)
     argparser.add_argument('--root', type=str,
-            help='data', default='/flush5/sho092/Robust_learning/')
+            help='data', default='/OSM/CBR/D61_RCV/students/sho092/')
     def str2bool(v):
         if isinstance(v, bool):
            return v

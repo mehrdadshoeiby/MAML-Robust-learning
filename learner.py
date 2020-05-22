@@ -69,9 +69,10 @@ class Learner(nn.Module):
 
             elif name in ['tanh', 'relu', 'upsample', 'avg_pool2d',
                           'max_pool2d', 'flatten', 'reshape', 'leakyrelu',
-                          'sigmoid']:
-                continue
+                          'sigmoid', '+1']:
+                continue # because these will be implemented in forward
             else:
+                print('name is: ', name)
                 raise NotImplementedError
 
 
@@ -81,7 +82,7 @@ class Learner(nn.Module):
         for name, param in self.config:
             if name is 'conv2d':
                 tmp = (r'conv2d:(ch_in:%d, ch_out:%d, k:%dx%d, stride:%d,'
-                       r'padding:%d)'%(param[1], param[0], param[2],
+                       r'padding:%d)')%(param[1], param[0], param[2],
                        param[3], param[4], param[5],)
                 info += tmp + '\n'
 
@@ -110,7 +111,7 @@ class Learner(nn.Module):
                 info += tmp + '\n'
             # below are implemented in forward 
             elif name in ['flatten', 'tanh', 'relu', 'upsample', 'reshape',
-                    'sigmoid', 'use_logits', 'bn']:
+                    'sigmoid', 'use_logits', 'bn', '+1']:
                 tmp = name + ':' + str(tuple(param))
                 info += tmp + '\n'
             else:
@@ -141,12 +142,19 @@ class Learner(nn.Module):
         idx = 0
         bn_idx = 0
 
-        for name, param in self.config:
-            if name is 'conv2d':
+        c = 0      
+        for i, (name, param) in enumerate(self.config):
+            # print(name)
+            # print(i)
+            if name is  'conv2d': 
                 w, b = vars[idx], vars[idx + 1]
                 # remember to keep synchrozied of forward_encoder and
                 # forward_decoder! 
                 x = F.conv2d(x, w, b, stride=param[4], padding=param[5])
+                # print('i is: ', i)
+                if i == 2:
+                    x1 = x.clone()
+                    # print('if statement running!')
                 idx += 2
                 # print(name, param, '\tout:', x.shape)
             elif name is 'convt2d':
@@ -191,8 +199,14 @@ class Learner(nn.Module):
                 x = F.max_pool2d(x, param[0], param[1], param[2])
             elif name is 'avg_pool2d':
                 x = F.avg_pool2d(x, param[0], param[1], param[2])
-
+            # here implementing the residual conneciton
+            # can modify this to ==> if includes +, add the residual from the 
+            # (here) first layer.
+            elif name=='+1':
+                #print('elif is running')
+                x = x + x1              
             else:
+                print(name)
                 raise NotImplementedError
 
         # make sure variable is used properly

@@ -167,7 +167,7 @@ if __name__ == '__main__':
     argparser.add_argument('--test_only', type=bool,
             help='test_only', default=False)
     argparser.add_argument('--root', type=str,
-            help='data', default='/OSM/CBR/D61_RCV/students/sho092/')
+            help='data', default='/flush5/sho092/Robust_learning/')
     def str2bool(v):
         if isinstance(v, bool):
            return v
