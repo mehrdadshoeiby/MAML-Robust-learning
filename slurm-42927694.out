@@ -31,4 +31,4 @@ Meta(
 )
 Total trainable tensors: 33251
 shuffle DB :train, b:100000,  40-setsz, 10-querysz
-slurmstepd: error: *** JOB 42925944 ON b019 CANCELLED AT 2020-05-23T15:35:53 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 42927694 ON b063 CANCELLED AT 2020-05-23T17:38:33 DUE TO TIME LIMIT ***

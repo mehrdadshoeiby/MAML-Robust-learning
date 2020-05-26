@@ -152,9 +152,6 @@ class Learner(nn.Module):
                 # forward_decoder! 
                 x = F.conv2d(x, w, b, stride=param[4], padding=param[5])
                 # print('i is: ', i)
-                if i == 2:
-                    x1 = x.clone()
-                    # print('if statement running!')
                 idx += 2
                 # print(name, param, '\tout:', x.shape)
             elif name is 'convt2d':
@@ -187,6 +184,10 @@ class Learner(nn.Module):
                 x = x.view(x.size(0), *param)
             elif name is 'relu':
                 x = F.relu(x, inplace=param[0])
+                if i == 1:
+                    x1 = x.clone()
+                    # print('if statement running!')
+
             elif name is 'leakyrelu':
                 x = F.leaky_relu(x, negative_slope=param[0], inplace=param[1])
             elif name is 'tanh':

@@ -9,9 +9,9 @@ Meta(
     relu:(True,)
     conv2d:(ch_in:32, ch_out:32, k:3x3, stride:1,padding:1)
     relu:(True,)
-    +1:(True,)
     conv2d:(ch_in:32, ch_out:32, k:3x3, stride:1,padding:1)
     relu:(True,)
+    +1:(True,)
     conv2d:(ch_in:32, ch_out:3, k:3x3, stride:1,padding:1)
     
     (vars): ParameterList(
@@ -31,4 +31,4 @@ Meta(
 )
 Total trainable tensors: 33251
 shuffle DB :train, b:100000,  40-setsz, 10-querysz
-slurmstepd: error: *** JOB 42925944 ON b019 CANCELLED AT 2020-05-23T15:35:53 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 42989040 ON b076 CANCELLED AT 2020-05-26T14:12:03 ***

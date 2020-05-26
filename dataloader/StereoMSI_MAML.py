@@ -62,7 +62,7 @@ class StereoMSITrain(Dataset):
         self.query_batch = [[] for i in range(batchsz)]
   
         if self.data_dist_same==True:
-            img_idx1 = np.arange(0, 25)
+            img_idx1 = np.arange(0, 250)
             #img_idx2 = np.arange(201, 251)
         else:
             img_idx1 = np.arange(0, 200)
