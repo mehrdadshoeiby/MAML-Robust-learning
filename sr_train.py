@@ -180,6 +180,10 @@ if __name__ == '__main__':
     argparser.add_argument('--data_dist_same', type=str2bool, nargs='?',
             help=r'data distribution of the learning and meta learning are '
                  r'the same ==> True', default=False, const=True)
+    argparser.add_argument('--data_dist_shuffle', type=str2bool, nargs='?',
+            help='data distribution shuffle in each batch',
+                 default=False, const=True)
+
 
 
     args = argparser.parse_args()
