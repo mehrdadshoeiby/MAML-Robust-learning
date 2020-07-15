@@ -64,24 +64,16 @@ class StereoMSITrain(Dataset):
         if self.data_dist_same==True:
             img_idx1 = np.arange(0, 250)
             #img_idx2 = np.arange(201, 251)
-        elif self.data_dist_same==False and self.data_dist_shuffle==False:
+        else:
             img_idx1 = np.arange(0, 200)
             img_idx2 = np.arange(200, 250)
-        else:
-            img_idx = np.arange(0,250)
-
+      
         for b in range(batchsz):
-            if self.data_dist_same==True and self.data_dist_shuffle==False:
+            if self.data_dist_same==True:
                 random.shuffle(img_idx1)
-            elif self.data_dist_same==False and self.data_dist_shuffle==False:
+            else:
                 random.shuffle(img_idx1)
                 random.shuffle(img_idx2)
-            else: 
-                random.shuffle(img_idx)
-                img_idx1 = imd_idx[0:200]
-                img_idx2 = img_idx[200:250]
-                
-
             for episode in range(self.task_num): 
                 # When DataSet class is initialised, create_batch is run once
                 # for each batch

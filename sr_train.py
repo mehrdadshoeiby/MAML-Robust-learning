@@ -19,6 +19,8 @@ import errors
 
 import time
 
+
+
 def mean_confidence_interval(accs, confidence=0.95):
 
     n = accs.shape[0]
@@ -33,6 +35,11 @@ def prepare(l, volatile=False):
         #if self.args.precision == 'half': tensor = tensor.half()
         return tensor.to(device, dtype=torch.float)
     return [_prepare(_l) for _l in l]
+
+
+def get_lr(optimizer):
+    for param_group in optimizer.param_groups:
+            return param_group['lr']
 
 def main():
     ck = util.checkpoint(args)
@@ -69,7 +76,6 @@ def main():
 
     device = torch.device('cuda')
     maml = Meta(args, config).to(device)
-
     # (Dataset) calculate the number of trainable tensors
     tmp = filter(lambda x: x.requires_grad, maml.parameters())
     num = sum(map(lambda x: np.prod(x.shape), tmp))
@@ -91,7 +97,8 @@ def main():
                 spt_rgb.to(device), qry_ms.to(device), qry_rgb.to(device))
 
         # optimization is carried out inside meta_learner class, maml.
-        accs, train_loss = maml(spt_ms, spt_rgb, qry_ms, qry_rgb)
+        accs, train_loss = maml(spt_ms, spt_rgb, qry_ms, qry_rgb, epoch)
+        maml.scheduler.step() 
         
         if epoch % args.print_every == 0:
             log_epoch =  'epoch: {} \ttraining acc: {}'.format(epoch, accs)

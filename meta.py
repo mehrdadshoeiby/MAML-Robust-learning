@@ -11,6 +11,11 @@ from    copy import deepcopy
 
 import errors
 
+
+def get_lr(optimizer):
+    for param_group in optimizer.param_groups:
+            return param_group['lr']
+
 class Meta(nn.Module):
     """
     Meta Learner
@@ -31,8 +36,11 @@ class Meta(nn.Module):
         # inner loop: the network, takes network structure and input size
         self.net = Learner(config)
         self.meta_optim = optim.Adam(self.net.parameters(), lr=self.meta_lr)
+        self.scheduler = optim.lr_scheduler.MultiStepLR(self.meta_optim,
+                        milestones=[2000, 4000],
+                        gamma=0.5)
         self.log = [] 
-
+        print('init in Meta class running!')
 
     # I dont think this function has been used here!
     def clip_grad_by_norm_(self, grad, max_norm):
@@ -58,7 +66,7 @@ class Meta(nn.Module):
         return total_norm/counter
 
 
-    def forward(self, spt_ms, spt_rgb, qry_ms, qry_rgb):
+    def forward(self, spt_ms, spt_rgb, qry_ms, qry_rgb, epoch):
         """
         :b:             number of tasks/batches.
         :setsz:         number of training pairs?
@@ -82,7 +90,11 @@ class Meta(nn.Module):
         losses_q = [0 for _ in range(self.update_step + 1)]
         # accuracy on step i of gradient descent (inner loop)
         corrects = [0 for _ in range(self.update_step + 1)]
-
+        if (epoch < 4001):
+            if (epoch%2000==0)  and (epoch > 1):
+                decay = 2 #(epoch // 5) + 1
+                self.update_lr = self.update_lr / decay
+        print('outer loop lr is: ', self.update_lr) 
         for i in range(task_num):
 
             # 1. run the i-th task and compute loss for k=0, k is update step
@@ -162,10 +174,12 @@ class Meta(nn.Module):
         # 	print(torch.norm(p).item())
         self.meta_optim.step()
         accs = np.average(np.array(corrects[-1])) #/ (querysz * task_num)
-
+        print('inner loop lr is: ', self.get_lr(self.meta_optim))
         return accs, loss_q 
 
-
+    def get_lr(self, optimizer):
+        for param_group in optimizer.param_groups:
+                return param_group['lr']
 
 
 
